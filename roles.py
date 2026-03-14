@@ -24,7 +24,7 @@ class Role():
         with open('missions.json', 'r') as file:
             missions = json.load(file)
         with open('missions.json', 'w') as file:
-            missions['go_pile'].append(StatusCards.Pass.value)
+            missions['go_pile'].append(StatusCards.Pass)
             json.dump(missions, file)
     
     @staticmethod
@@ -32,8 +32,8 @@ class Role():
         with open('missions.json', 'r') as file:
             missions = json.load(file)
         with open('missions.json', 'w') as file:
-            missions['go_pile'].append(StatusCards.Fail.value)
-            json.dump(missions, file) 
+            missions['go_pile'].append(StatusCards.Fail)
+            json.dump(missions, file)
 
 ##################################
 ########### RESISTANCE ###########

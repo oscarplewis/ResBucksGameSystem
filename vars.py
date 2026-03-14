@@ -1,6 +1,7 @@
 from enum import Enum
 
 class bind:
+    """Class to bind different instances of methods to specific variables in an Enum class. Used as a wrapper."""
     bound_methods = {}
 
     def __init__(self, name):

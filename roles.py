@@ -23,14 +23,14 @@ class Role():
     def passMission() -> None:
         with open('missions.json', 'r+') as file:
             missions = json.load(file)
-            missions['go_pile'].append(StatusCards.Pass)
+            missions['go_pile'].append(StatusCards.Pass.value)
             json.dump(missions, file)
     
     @staticmethod
     def failMission() -> None:
         with open('missions.json', 'r+') as file:
             missions = json.load(file)
-            missions['go_pile'].append(StatusCards.Fail)
+            missions['go_pile'].append(StatusCards.Fail.value)
             json.dump(missions, file)
 
 ##################################

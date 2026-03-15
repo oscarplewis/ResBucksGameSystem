@@ -6,6 +6,8 @@ class RoleError(Exception):
     pass
 
 class Role():
+    missions_info_filepath = 'missions.json'
+
     def __init__(self, name:str, description:str, team:Team, importance:int, guessable:bool=False) -> None:
         self.name:str = name
         self.description:str = description
@@ -21,22 +23,24 @@ class Role():
 
     @staticmethod
     def passMission() -> None:
-        with open('missions.json', 'r+') as file:
+        with open(Role.missions_info_filepath, 'r+') as file:
             missions = json.load(file)
             missions['go_pile'].append(StatusCards.Pass.value)
+            missions['discard_pile'].append(StatusCards.Fail.value)
             json.dump(missions, file)
     
     @staticmethod
     def failMission() -> None:
-        with open('missions.json', 'r+') as file:
+        with open(Role.missions_info_filepath, 'r+') as file:
             missions = json.load(file)
             missions['go_pile'].append(StatusCards.Fail.value)
+            missions['discard_pile'].append(StatusCards.Pass.value)
             json.dump(missions, file)
 
 ##################################
 ########### RESISTANCE ###########
 ##################################
-    
+
 class Res(Role):
     def __init__(self) -> None:
         name = "Res"
